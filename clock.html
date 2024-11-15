@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clock</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-self: center;
+            margin-top: 200px;
+            background-color: rgb(167, 155, 155)
+        }
+
+
+        .clock {
+            height: 200px;
+            width: 200px;
+            border-radius: 110px;
+            background-color: rgb(189, 221, 221);
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            border: solid rgb(8, 7, 7) 6px;
+            background-image: url("../cloc.jpg");
+
+        }
+
+        .cloc {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            /* padding-bottom: 11px; */
+        }
+
+
+        .line1 {
+            height: 50px;
+            width: 2px;
+            background-color: black;
+            transform-origin: bottom;
+            transition: 1s;
+            position: absolute;
+            margin-bottom: 20px;
+        }
+
+        .line2 {
+            height: 40px;
+            width: 3px;
+            background-color: rgb(190, 60, 60);
+            transform-origin: bottom;
+            transition: 1s;
+            position: absolute;
+            margin-bottom: 20px;
+        }
+
+        .line3 {
+            height: 30px;
+            width: 4px;
+            background-color: rgb(80, 47, 199);
+            transform-origin: bottom;
+            transition: 1s;
+            position: absolute;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            height: 10px;
+            width: 5px;
+            border-radius: 50%;
+            background-color: rgb(8, 5, 5);
+            margin-top: 45px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cloc">
+
+        <div class="clock">
+            <div class="line1" id="rotate"></div>
+            <div class="line2" id="rotate"></div>
+            <div class="line3" id="rotate"></div>
+
+            <button class="btn" onclick="rotate()"></button>
+        </div>
+
+    </div>
+
+    <script>
+        // function rotate() {
+        //     const line1 = document.querySelector('.line1');
+        //     let angle1 = 0;
+        //     var i = 1
+        //     while (true) {
+
+        //         for (let j = 0; j < 60; j++) {
+
+        //             setTimeout(() => {
+        //                 angle1 += 6;
+        //                 line1.style.transform = `rotate(${angle1}deg)`;
+        //             }, j * 1000);
+        //             i++;
+        //             if (i > 2) {
+        //                 break;
+        //             }
+        //         }
+        function rotate() {
+            const line1 = document.querySelector('.line1');
+            let angle1 = 0;
+
+            function startRotation() {
+                for (let j = 0; j < 60; j++) {
+                    setTimeout(() => {
+                        angle1 += 6;
+                        line1.style.transform = `rotate(${angle1}deg)`;
+                    }, j * 1000);
+                }
+                setTimeout(startRotation, 60 * 1000);
+            }
+            startRotation();
+        }
+
+        rotate();
+
+
+
+// line2
+        const line2 = document.querySelector('.line2');
+        let angle2 = 0;
+        function startRotation() {
+
+        for (let i = 0; i < 60; i++) {
+
+            setTimeout(() => {
+                // angle2 += 6;
+                line2.style.transform = `rotate(${angle2}deg)`;
+                angle2 += 6;
+
+            }, i * 60000);
+        }
+        setTimeout(startRotation, 60 * 60000);
+            }
+            startRotation();
+        rotate();
+
+        // line3
+
+        const line3 = document.querySelector('.line3');
+        let angle3 = 0;
+      
+
+        for (let i = 0; i < 12; i++) {
+
+            setTimeout(() => {
+                line3.style.transform = `rotate(${angle3}deg)`;
+                angle3 += 30;
+
+            }, i * 3600000);
+        }
+    
+
+
+        
+        
+
+
+
+
+    </script>
+</body>
+
+</html>
